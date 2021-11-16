@@ -5,13 +5,20 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 
 import userRouter from './routes/userRouter.js';
+import authRouter from './routes/authRouter.js';
 
 const app = express();
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlPath: true }, () => {
+mongoose.connect('mongodb://localhost/chatapp', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+}, () => {
     console.log('connect to MongoDB successfully')
 });
+
+
 
 
 //middleware
@@ -20,6 +27,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.use('/api/users', userRouter);
+app.use('/api/auth', authRouter);
 
 
 app.get('/', (req, res) => {
