@@ -5,12 +5,8 @@ import data from '../data.js'
 
 const userRouter = express.Router();
 
-userRouter.get('/', async (req, res) => {
-    const users = await User.find({});
 
-    res.status(200).send(users);
-})
-
+//register
 userRouter.post('/register', async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(8);
@@ -21,7 +17,6 @@ userRouter.post('/register', async (req, res) => {
             password: bcrypt.hashSync(req.body.password, salt)
         });
 
-
         const user = await newUser.save();
         res.status(200).send(user)
     } catch (err) {
@@ -29,7 +24,7 @@ userRouter.post('/register', async (req, res) => {
     }
 })
 
-
+//login
 userRouter.post('/login', async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
     if (user) {
@@ -42,12 +37,12 @@ userRouter.post('/login', async (req, res) => {
     res.status(404).send({ message: 'Sai tài khoản hoặc mật khẩu' })
 })
 
-
+//update user
 userRouter.put('/:id', async (req, res) => {
 
 })
 
-
+//delete user
 userRouter.delete('/:id', async (req, res) => {
     const user = await User.findById(req.params.id)
 
@@ -59,17 +54,8 @@ userRouter.delete('/:id', async (req, res) => {
     }
 })
 
-userRouter.get('/:id', async (req, res) => {
-    const user = await User.findById(req.params.id)
 
-    if (user) {
-        const { password, updatedAt, ...other } = user._doc
-        res.status(200).send(other);
-    } else {
-        res.status(404).send('Tài khoản không tồn tại');
-    }
-})
-
+//follow
 userRouter.put('/:id/follow', async (req, res) => {
     if (req.body.userId !== req.params.id) {
         try {
@@ -92,6 +78,7 @@ userRouter.put('/:id/follow', async (req, res) => {
     }
 })
 
+//unfollow
 userRouter.put('/:id/unfollow', async (req, res) => {
     if (req.body.userId !== req.params.id) {
         try {
@@ -114,6 +101,24 @@ userRouter.put('/:id/unfollow', async (req, res) => {
     }
 })
 
+//get all user
+userRouter.get('/', async (req, res) => {
+    const users = await User.find({});
+
+    res.status(200).send(users);
+})
+
+//get single user
+userRouter.get('/:id', async (req, res) => {
+    const user = await User.findById(req.params.id)
+
+    if (user) {
+        const { password, updatedAt, ...other } = user._doc
+        res.status(200).send(other);
+    } else {
+        res.status(404).send('Tài khoản không tồn tại');
+    }
+})
 
 
 
