@@ -1,3 +1,5 @@
+import PersonIcon from "@mui/icons-material/Person";
+
 import "./App.scss";
 
 function App() {
