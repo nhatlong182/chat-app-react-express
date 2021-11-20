@@ -1,0 +1,8 @@
+@import "../../scss/mixin";
+@import "../../scss/variables";
+
+.home-container {
+  width: 100%;
+  display: flex;
+  //@include flex(center, space-between);
+}

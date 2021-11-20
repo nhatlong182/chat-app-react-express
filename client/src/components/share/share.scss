@@ -1,0 +1,65 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+
+.share {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  margin-top: 1rem;
+  -webkit-box-shadow: 0 0 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0 0 16px -8px rgba(0, 0, 0, 0.68);
+
+  &-wrapper {
+    padding: 10px;
+
+    &-top {
+      @include flex(center, left);
+
+      .share-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 0.5rem;
+      }
+
+      .share-input {
+        width: 88%;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .share-Hr {
+      margin: 20px;
+    }
+
+    &-bottom {
+      @include flex(center, center);
+
+      .share-options {
+        margin-left: 1rem;
+        cursor: pointer;
+        @include flex(center, center);
+
+        &-item {
+          margin-right: 5rem;
+          @include flex(center, center);
+
+          .share-options-icon {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+          }
+
+          .share-options-text {
+            padding: 10px;
+            font-size: larger;
+          }
+        }
+      }
+    }
+  }
+}

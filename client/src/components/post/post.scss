@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+
+.post {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 1rem;
+  -webkit-box-shadow: 0 0 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0 0 16px -8px rgba(0, 0, 0, 0.68);
+
+  &-wrapper {
+    padding: 10px;
+    font-size: larger;
+
+    &-top {
+      @include flex(center, space-between);
+    }
+  }
+}

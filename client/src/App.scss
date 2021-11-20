@@ -10,6 +10,16 @@
 
 body {
   font-family: $font-family;
-  //font-size: 1rem;
+  font-size: 62.5%;
   overflow: hidden;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
 }
