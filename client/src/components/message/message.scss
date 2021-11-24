@@ -1,0 +1,42 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+
+.message {
+  display: flex;
+  flex-direction: column;
+
+  &.own {
+    align-items: flex-end;
+  }
+
+  .message-top {
+    display: flex;
+
+    .message-top-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 10px;
+    }
+
+    .message-top-text {
+      padding: 10px;
+      border-radius: 20px;
+      background-color: #f1efef;
+      color: $black;
+      max-width: 350px;
+      word-wrap: break-word;
+
+      &.own {
+        background-color: $blue;
+        color: $white;
+      }
+    }
+  }
+
+  .message-bottom {
+    font-size: 12px;
+    margin-top: 0.5rem;
+  }
+}

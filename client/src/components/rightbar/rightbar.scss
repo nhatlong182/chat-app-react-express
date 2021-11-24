@@ -2,5 +2,62 @@
 @import "../../scss/mixin";
 
 .rightbar {
-  flex: 4;
+  flex: 3.5;
+  @include flex(flex-start, flex-end);
+
+  &-wrapper {
+    padding: 20px 20px 0 0;
+
+    .rightbar-ad {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .rightbar-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    .friend-list {
+      padding: 0;
+      margin: 0;
+
+      &-item {
+        margin-bottom: 1rem;
+        @include flex(center, flex-start);
+
+        &-container {
+          margin-right: 1rem;
+          position: relative;
+          z-index: -1;
+
+          .friend-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .friend-online {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: lightgreen;
+            position: absolute;
+            top: -2px;
+            right: 0;
+            border: 2px solid $white;
+          }
+        }
+
+        .friend-name {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
 }

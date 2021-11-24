@@ -74,4 +74,12 @@ postRouter.get('/timeline', async (req, res) => {
 })
 
 
+postRouter.get('/seeder', async (req, res) => {
+    await Post.deleteMany();
+    await Post.insertMany(data.posts);
+
+    res.send('ok')
+})
+
+
 export default postRouter;

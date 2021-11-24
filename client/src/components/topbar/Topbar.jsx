@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonIcon from "@mui/icons-material/Person";
 import MessageIcon from "@mui/icons-material/Message";
@@ -35,7 +36,9 @@ export default function Topbar() {
             <span className="topbar-icon-count">1</span>
           </div>
           <div className="topbar-icon-item">
-            <MessageIcon />
+            <Link to="/messenger">
+              <MessageIcon />
+            </Link>
             <span className="topbar-icon-count">1</span>
           </div>
           <div className="topbar-icon-item">

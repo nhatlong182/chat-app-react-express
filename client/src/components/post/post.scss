@@ -14,6 +14,63 @@
 
     &-top {
       @include flex(center, space-between);
+
+      &-left {
+        @include flex(center, flex-start);
+
+        .post-profile-image {
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 0.5rem;
+        }
+
+        .post-username {
+          font-size: 1rem;
+          font-weight: 500;
+          margin: 0 10px;
+        }
+
+        .post-time {
+          font-size: 12px;
+        }
+      }
+
+      .post-more-icon {
+        cursor: pointer;
+      }
+    }
+
+    &-center {
+      margin: 20px 0;
+
+      .post-img {
+        width: 100%;
+        margin-top: 20px;
+        max-height: 500px;
+        object-fit: cover;
+      }
+    }
+
+    &-bottom {
+      @include flex(center, space-between);
+
+      &-left {
+        @include flex(center, flex-start);
+
+        .like-icon {
+          width: 24px;
+          height: 24px;
+          margin-right: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .post-comment {
+        cursor: pointer;
+        font-size: 15px;
+      }
     }
   }
 }
