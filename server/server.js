@@ -7,6 +7,8 @@ import dotenv from 'dotenv'
 import userRouter from './routes/userRouter.js';
 import authRouter from './routes/authRouter.js';
 import postRouter from './routes/postRouter.js';
+import conversationRouter from './routes/conversationRouter.js';
+import messageRouter from './routes/messageRouter.js';
 
 
 
@@ -23,7 +25,6 @@ mongoose.connect('mongodb://localhost/chatapp', {
 
 
 
-
 //middleware
 app.use(express.json());
 app.use(helmet());
@@ -32,6 +33,8 @@ app.use(morgan("common"));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/posts', postRouter);
+app.use('/api/conversations', conversationRouter);
+app.use('/api/messages', messageRouter);
 
 
 app.get('/', (req, res) => {

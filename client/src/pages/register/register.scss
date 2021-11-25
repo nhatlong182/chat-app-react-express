@@ -1,0 +1,81 @@
+@import "../../scss/mixin";
+@import "../../scss/variables";
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f0f2f5;
+  //background-image: url();
+  background-size: cover;
+  @include flex(center, center);
+
+  &-wrapper {
+    width: 70%;
+    height: 70%;
+    display: flex;
+
+    &-left {
+      flex: 1;
+      @include flex(flex-end, center);
+      flex-direction: column;
+      margin-right: 5rem;
+    }
+    &-right {
+      flex: 1;
+      @include flex(flex-start, center);
+      flex-direction: column;
+    }
+
+    .login-logo {
+      font-size: 50px;
+      font-weight: 800;
+      color: $blue;
+      margin-bottom: 10px;
+    }
+    .login-text {
+      font-size: 24px;
+    }
+
+    .login-form {
+      height: 350px;
+      padding: 20px;
+      background-color: $white;
+      border-radius: 10px;
+      @include flex(flex-start, space-between);
+      flex-direction: column;
+
+      .login-input {
+        height: 50px;
+        width: 300px;
+        border-radius: 10px;
+        border: 1px solid gray;
+        font-size: 18px;
+        padding-left: 10px;
+      }
+
+      .login-submit {
+        height: 50px;
+        width: 300px;
+        border-radius: 10px;
+        border: none;
+        background-color: $blue;
+        color: $white;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .register {
+        font-size: 16px;
+
+        a {
+          color: blue;
+
+          &:hover {
+            color: rgb(231, 199, 140);
+          }
+        }
+      }
+    }
+  }
+}

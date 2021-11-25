@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { Users } from "../../FakeData.js";
 
 import "./post.scss";
 
-export default function Post() {
-  const [like, setLike] = useState(1);
+export default function Post({ post }) {
+  const [like, setLike] = useState(post.like);
   const [isLike, setIsLike] = useState(false);
 
   const likeHandler = () => {
@@ -18,20 +19,25 @@ export default function Post() {
         <div className="post-wrapper-top">
           <div className="post-wrapper-top-left">
             <img
-              src="/assets/persons/2.jpg"
+              src={
+                Users.filter((user) => user.id === post.userId)[0]
+                  .profilePicture
+              }
               alt=""
               className="post-profile-image"
             />
-            <span className="post-username">jacob Trần</span>
-            <span className="post-time">5 phút trước</span>
+            <span className="post-username">
+              {Users.filter((user) => user.id === post.userId)[0].username}
+            </span>
+            <span className="post-time">{post.date}</span>
           </div>
           <div className="post-wrapper-top-right">
             <MoreVertIcon className="post-more-icon" />
           </div>
         </div>
         <div className="post-wrapper-center">
-          <span className="post-text">Đây là bài viết</span>
-          <img src="/assets/posts/1.jpg" alt="post" className="post-img" />
+          <span className="post-text">{post.desc}</span>
+          <img src={post.photo} alt="post" className="post-img" />
         </div>
         <div className="post-wrapper-bottom">
           <div className="post-wrapper-bottom-left">
@@ -50,7 +56,7 @@ export default function Post() {
             <span className="like-count">{like} lượt thích</span>
           </div>
           <div className="post-wrapper-bottom-right">
-            <span className="post-comment">10 bình luận</span>
+            <span className="post-comment">{post.comment} bình luận</span>
           </div>
         </div>
       </div>

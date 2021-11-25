@@ -11,7 +11,9 @@ export default function Topbar() {
   return (
     <div className="topbar">
       <div className="topbar-left">
-        <span className="logo">FakeBook</span>
+        <Link to="/home">
+          <span className="logo">LongSocialApp</span>
+        </Link>
       </div>
       <div className="topbar-center">
         <div className="search-bar">
