@@ -18,7 +18,16 @@ userRouter.post('/register', async (req, res) => {
         });
 
         const user = await newUser.save();
-        res.status(200).send(user)
+        res.status(200).send({
+            _id: user._id,
+            username: user.username,
+            email: user.email,
+            avatar: user.avatar,
+            coverPicture: user.coverPicture,
+            followers: user.followers,
+            followings: user.followings,
+            isAdmin: user.isAdmin,
+        })
     } catch (err) {
         console.log(err)
     }
@@ -29,7 +38,16 @@ userRouter.post('/login', async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
     if (user) {
         if (bcrypt.compareSync(req.body.password, user.password)) {
-            res.send(user)
+            res.send({
+                _id: user._id,
+                username: user.username,
+                email: user.email,
+                avatar: user.avatar,
+                coverPicture: user.coverPicture,
+                followers: user.followers,
+                followings: user.followings,
+                isAdmin: user.isAdmin,
+            })
             return;
         }
 
