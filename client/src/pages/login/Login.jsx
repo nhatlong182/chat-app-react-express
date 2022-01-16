@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../../redux/action/userAction.js";
+import { CircularProgress } from "@mui/material";
 
 import "./login.scss";
 
 export default function Login(props) {
   const user = useSelector((state) => state.userSignin);
-  const { error, userInfo } = user;
+  const { loading, error, userInfo } = user;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,7 +55,7 @@ export default function Login(props) {
               ></input>
 
               <button className="login-submit" type="submit">
-                Đăng nhập
+                {loading ? <CircularProgress /> : "Đăng nhập"}
               </button>
               <span className="register">
                 Chưa có tài khoản? <Link to="/register">đăng ký</Link>
